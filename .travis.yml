@@ -13,6 +13,11 @@ jobs:
   include:
     - stage: tests
       language: dart
+      install:
+        - pub get
+      script:
+        - pub run test
+        - dartanalyzer --fatal-warnings lib
     - stage: release
       if: branch = master
       deploy:
